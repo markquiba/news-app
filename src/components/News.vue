@@ -3,9 +3,10 @@
     <div class="top-toolbar">
       <h1 class="head-title">Headlines</h1>
       <v-select
+        @change="() => filter(selectedSource)"
         v-model="selectedSource"
         class="filter-btn"
-        :items="getSourceNames"
+        :items="getSourceData"
         label="Filter by Source"
         outline
       ></v-select>
@@ -40,8 +41,7 @@ export default {
       'articles'
     ]),
     ...mapGetters([
-      'getSourceIds',
-      'getSourceNames'
+      'getSourceData'
     ])
   },
   methods: {
