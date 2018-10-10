@@ -4,6 +4,9 @@
       <Header />
       <FilterBySource />
     </div>
+    <div>
+      <Loader />
+    </div>
     <v-layout row wrap class="news-wrapper">
       <v-flex v-for="(article, index) in articles" :key="index" xs12 sm6 md4>
         <Article :article="article" />
@@ -17,12 +20,14 @@ import { mapState, mapGetters } from 'vuex'
 import Header from './Header'
 import FilterBySource from './FilterBySource'
 import Article from './Article'
+import Loader from './Loader'
 
 export default {
   components: {
     Header,
     FilterBySource,
-    Article
+    Article,
+    Loader
   },
   computed: {
     ...mapState([
