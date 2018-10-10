@@ -5,9 +5,9 @@
       <v-btn class="filter-btn" color="info">Filter</v-btn>
     </div>
     <v-layout row wrap class="news">
-      <v-flex v-for="i in 6" :key="i" xs3>
+      <v-flex v-for="(article, index) in articles" :key="index" xs3>
         <div>
-          title here..
+          {{ article.title }}
         </div>
       </v-flex>
     </v-layout>
@@ -15,12 +15,13 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
+
 export default {
-  name: 'News',
-  data() {
-    return {
-      news: []
-    }
+  computed: {
+    ...mapState([
+      'articles'
+    ])
   }
 }
 </script>
