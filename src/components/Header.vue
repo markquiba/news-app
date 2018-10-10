@@ -22,4 +22,10 @@ export default {
   color:#5C6BC0;
   float: left;
 }
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+  .header-title {
+    display: none;
+  }
+}
 </style>
