@@ -51,7 +51,6 @@ export default {
       this.$store.dispatch("filterArticles", { _source: selectedSource, apiKey }).then(() => {
         console.log("Success: Filtered Articles")
       })
-      console.log(selectedSource)
     }
   }
 }
