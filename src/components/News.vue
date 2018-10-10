@@ -22,6 +22,7 @@
 
 <script>
 import { mapState, mapGetters } from 'vuex'
+import Header from './Header'
 import FilterBySource from './FilterBySource'
 
 const apiKey = "099148be22804e849a0c6fe022b7cf5e";
@@ -33,6 +34,7 @@ export default {
     }
   },
   components: {
+    Header,
     FilterBySource
   },
   computed: {
@@ -79,12 +81,6 @@ export default {
   margin-top: 50px;
 }
 
-.head-title {
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  font-size: 3.6em;
-  color:#5C6BC0;
-  float: left;
-}
 .top-toolbar {
   overflow: hidden;
 }
