@@ -1,19 +1,35 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import { resolve } from 'url';
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    news: []
+    articles: []
   },
   getters: {
 
   },
   mutations: {
-
+    FETCH_ARTICLES(state, articles) {
+      state.articles = articles
+    }
   },
   actions: {
+    fetchArticles({ commit }, params) {
+
+      return new Promise((resolve, reject) => {
+        fetch(`https://newsapi.org/v2/top-headlines?country=${params.country}&apiKey=${params.apiKey}`)
+        .then(res => res.json())
+        .then(data => {
+          commit("FETCH_ARTICLES", data.articles);
+          resolve();
+          console.log('success', data.articles)
+        })
+        .catch(error => console.log(error))
+      })
+    }
 
   }
 })
