@@ -38,9 +38,23 @@ export default {
   transition: 0.3s ease-in;
 }
 
-.article .content {
-  position: relative;
-  bottom: 0;
-  padding: 20px;
+.article-overlay {
+  position: absolute;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  height: 100%;
+  width: 100%;
 }
+
+.article-content {
+  position: absolute;
+  bottom: 0;
+  color: white;
+  padding: 25px;
+  background: -moz-linear-gradient(bottom, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0) 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(bottom, rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to top, rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', endColorstr='#00000000',GradientType=0 ); /* IE6-9 */
+}
+
 </style>
