@@ -1,15 +1,8 @@
 <template>
   <v-container fluid grid-list-xs>
     <div class="top-toolbar">
-      <h1 class="head-title">Headlines</h1>
-      <v-select
-        @change="() => filter(selectedSource)"
-        v-model="selectedSource"
-        class="filter-btn"
-        :items="getSourceData"
-        label="Filter by Source"
-        outline
-      ></v-select>
+      <Header />
+      <FilterBySource />
     </div>
     <v-layout row wrap class="news-wrapper">
       <v-flex v-for="(article, index) in articles" :key="index" xs12 sm6 md4>
@@ -29,6 +22,7 @@
 
 <script>
 import { mapState, mapGetters } from 'vuex'
+import FilterBySource from './FilterBySource'
 
 const apiKey = "099148be22804e849a0c6fe022b7cf5e";
 
@@ -37,6 +31,9 @@ export default {
     return {
       selectedSource: ''
     }
+  },
+  components: {
+    FilterBySource
   },
   computed: {
     ...mapState([
@@ -82,11 +79,6 @@ export default {
   margin-top: 50px;
 }
 
-.filter-btn {
-  float: right;
-  padding: 0;
-  margin: 0;
-}
 .head-title {
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   font-size: 3.6em;
