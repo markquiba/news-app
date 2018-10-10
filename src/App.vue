@@ -1,7 +1,7 @@
 <template>
   <v-app light>
     <v-toolbar class="white--text" color="indigo darken-3">
-      <v-toolbar-title v-text="title"></v-toolbar-title>
+      <v-toolbar-title v-text="appTitle"></v-toolbar-title>
     </v-toolbar>
     <v-content>
       <News />
@@ -20,11 +20,6 @@ export default {
   components: {
     News
   },
-  data () {
-    return {
-      title: 'News App'
-    }
-  },
   created: function() {
     this.$store.dispatch("fetchArticles", {country: 'us', apiKey }).then(() => {
       console.log("Success: Fetch Articles")
@@ -34,10 +29,9 @@ export default {
     })
   },
   computed: {
-
-  },
-  methods: {
-
+    ...mapState([
+      'appTitle'
+    ])
   }
 }
 </script>
