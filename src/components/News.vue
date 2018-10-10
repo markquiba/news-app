@@ -30,6 +30,8 @@
 <script>
 import { mapState, mapGetters } from 'vuex'
 
+const apiKey = "099148be22804e849a0c6fe022b7cf5e";
+
 export default {
   data() {
     return {
@@ -46,6 +48,9 @@ export default {
   },
   methods: {
     filter(selectedSource) {
+      this.$store.dispatch("filterArticles", { _source: selectedSource, apiKey }).then(() => {
+        console.log("Success: Filtered Articles")
+      })
       console.log(selectedSource)
     }
   }
