@@ -6,19 +6,30 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    articles: []
+    articles: [],
+    sources: []
   },
   getters: {
-
+    getSourceIds: state => {
+      let sourceIds = state.sources.map((source) => {
+        return source.id
+      })
+      return sourceIds
+    }
   },
   mutations: {
     FETCH_ARTICLES(state, articles) {
+      state.articles = articles
+    },
+    FETCH_SOURCES(state, sources) {
+      state.sources = sources
+    },
+    CHANGE_ARTICLES(state, articles) {
       state.articles = articles
     }
   },
   actions: {
     fetchArticles({ commit }, params) {
-
       return new Promise((resolve, reject) => {
         fetch(`https://newsapi.org/v2/top-headlines?country=${params.country}&apiKey=${params.apiKey}`)
         .then(res => res.json())
