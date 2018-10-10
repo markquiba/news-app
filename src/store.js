@@ -10,17 +10,14 @@ export default new Vuex.Store({
     sources: []
   },
   getters: {
-    getSourceIds: state => {
-      let sourceIds = state.sources.map((source) => {
-        return source.id
+    getSourceData: state => {
+      let sourceData = state.sources.map(source => {
+        return {
+          text: source.name,
+          value: source.id
+        }
       })
-      return sourceIds
-    },
-    getSourceNames: state => {
-      let sourceNames = state.sources.map((source) => {
-        return source.name
-      })
-      return sourceNames
+      return sourceData
     }
   },
   mutations: {
