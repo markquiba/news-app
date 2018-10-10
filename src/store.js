@@ -10,7 +10,8 @@ export default new Vuex.Store({
     headerTitle: 'Headlines',
     articles: [],
     sources: [],
-    filterName: 'Filter by Source'
+    filterName: 'Filter by Source',
+    loader: false
   },
   getters: {
     getSourceData: state => {
