@@ -15,6 +15,12 @@ export default new Vuex.Store({
         return source.id
       })
       return sourceIds
+    },
+    getSourceNames: state => {
+      let sourceNames = state.sources.map((source) => {
+        return source.name
+      })
+      return sourceNames
     }
   },
   mutations: {
