@@ -6,8 +6,11 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    appTitle: 'News App',
+    headerTitle: 'Headlines',
     articles: [],
-    sources: []
+    sources: [],
+    filterName: 'Filter by Source'
   },
   getters: {
     getSourceData: state => {
