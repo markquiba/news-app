@@ -39,7 +39,6 @@ export default new Vuex.Store({
         .then(data => {
           commit("FETCH_ARTICLES", data.articles);
           resolve();
-          console.log('success', data.articles)
         })
         .catch(error => console.log(error))
       })
@@ -51,7 +50,6 @@ export default new Vuex.Store({
         .then(data => {
           commit("FETCH_SOURCES", data.sources);
           resolve();
-          console.log('success', data.sources)
         })
         .catch(error => console.log(error))
       })
