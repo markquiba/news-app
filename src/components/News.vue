@@ -5,7 +5,7 @@
       <v-select
         v-model="selectedSource"
         class="filter-btn"
-        :items="sourceNames"
+        :items="getSourceNames"
         label="Filter by Source"
         outline
       ></v-select>
@@ -27,6 +27,7 @@
 </template>
 
 <script>
+import { mapState, mapGetters } from 'vuex'
 
 export default {
   data() {
@@ -35,15 +36,13 @@ export default {
     }
   },
   computed: {
-    articles() {
-      return this.$store.state.articles
-    },
-    sourcesIds() {
-      return this.$store.getters.getSourceIds
-    },
-    sourceNames() {
-      return this.$store.getters.getSourceNames
-    }
+    ...mapState([
+      'articles'
+    ]),
+    ...mapGetters([
+      'getSourceIds',
+      'getSourceNames'
+    ])
   },
   methods: {
     filter(selectedSource) {
