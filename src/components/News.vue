@@ -18,14 +18,7 @@ import Header from './Header'
 import FilterBySource from './FilterBySource'
 import Article from './Article'
 
-const apiKey = "099148be22804e849a0c6fe022b7cf5e";
-
 export default {
-  data() {
-    return {
-      selectedSource: ''
-    }
-  },
   components: {
     Header,
     FilterBySource,
@@ -34,17 +27,7 @@ export default {
   computed: {
     ...mapState([
       'articles'
-    ]),
-    ...mapGetters([
-      'getSourceData'
     ])
-  },
-  methods: {
-    filter(selectedSource) {
-      this.$store.dispatch("filterArticles", { _source: selectedSource, apiKey }).then(() => {
-        console.log("Success: Filtered Articles")
-      })
-    }
   }
 }
 </script>
@@ -56,10 +39,5 @@ export default {
 }
 .news-wrapper {
   margin-top: -15px !important;
-}
-@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
-  .head-title {
-    display: none;
-  }
 }
 </style>
