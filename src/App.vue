@@ -27,7 +27,10 @@ export default {
   },
   created: function() {
     this.$store.dispatch("fetchArticles", {country: 'us', apiKey }).then(() => {
-      console.log("Fetch articles success!")
+      console.log("Success: Fetch Articles")
+    }),
+    this.$store.dispatch("fetchSources", apiKey).then(() => {
+      console.log("Success: Fetch Sources")
     })
   },
   computed: {
