@@ -27,7 +27,7 @@ export default new Vuex.Store({
     FETCH_SOURCES(state, sources) {
       state.sources = sources
     },
-    CHANGE_ARTICLES(state, articles) {
+    FILTER_ARTICLES(state, articles) {
       state.articles = articles
     }
   },
@@ -44,16 +44,6 @@ export default new Vuex.Store({
         .catch(error => console.log(error))
       })
     },
-    changeArticles({ commit }, params) {
-      return new Promise((resolve, reject) => {
-        fetch(`https://newsapi.org/v2/top-headlines?sources=${params.sources}&apiKey=${params.apiKey}`)
-        .then(res => res.json())
-        .then(data => {
-          commit("CHANGE_ARTICLES", data.articles)
-        })
-        .catch(error => console.log(errors))
-      })
-    },
     fetchSources({ commit }, apiKey) {
       return new Promise((resolve, reject) => {
         fetch(`https://newsapi.org/v2/sources?apiKey=${apiKey}`)
@@ -66,5 +56,15 @@ export default new Vuex.Store({
         .catch(error => console.log(error))
       })
     },
+    filterArticles({ commit }, params) {
+      return new Promise((resolve, reject) => {
+        fetch(`https://newsapi.org/v2/top-headlines?sources=${params._source}&apiKey=${params.apiKey}`)
+        .then(res => res.json())
+        .then(data => {
+          commit("FILTER_ARTICLES", data.articles)
+        })
+        .catch(error => console.log(errors))
+      })
+    }
   }
 })
