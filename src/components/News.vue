@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import { mapState, mapGetters } from 'vuex'
+import { mapGetters } from 'vuex'
 import Header from './Header'
 import FilterBySource from './FilterBySource'
 import Article from './Article'
@@ -30,9 +30,9 @@ export default {
     Loader
   },
   computed: {
-    ...mapState([
-      'articles'
-    ])
+    ...mapGetters({
+      articles: 'articles/articles'
+    })
   }
 }
 </script>

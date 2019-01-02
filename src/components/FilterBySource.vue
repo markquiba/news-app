@@ -21,13 +21,13 @@ export default {
     }
   },
   computed: {
-    ...mapGetters([
-      'getSourceData'
-    ])
+    ...mapGetters({
+      getSourceData: 'articles/getSourceData'
+    })
   },
   methods: {
     filter(selectedSource) {
-      this.$store.dispatch("filterArticles", { _source: selectedSource, apiKey }).then(() => {
+      this.$store.dispatch("articles/filterArticles", { _source: selectedSource, apiKey }).then(() => {
         console.log("Success: Filtered Articles")
       })
     }

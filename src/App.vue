@@ -11,7 +11,7 @@
 
 <script>
 import News from './components/News'
-import { mapState, mapMutations, mapActions } from 'vuex'
+import { mapGetters, mapMutations, mapActions } from 'vuex'
 
 const apiKey = "099148be22804e849a0c6fe022b7cf5e";
 
@@ -21,17 +21,17 @@ export default {
     News
   },
   created: function() {
-    this.$store.dispatch("fetchArticles", {country: 'us', apiKey }).then(() => {
+    this.$store.dispatch("articles/fetchArticles", {country: 'us', apiKey }).then(() => {
       console.log("Success: Fetch Articles")
     }),
-    this.$store.dispatch("fetchSources", apiKey).then(() => {
+    this.$store.dispatch("articles/fetchSources", apiKey).then(() => {
       console.log("Success: Fetch Sources")
     })
   },
   computed: {
-    ...mapState([
-      'appTitle'
-    ])
+    ...mapGetters({
+      appTitle: 'articles/appTitle'
+    })
   }
 }
 </script>
