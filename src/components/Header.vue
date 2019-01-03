@@ -7,9 +7,9 @@ import { mapGetters } from 'vuex'
 
 export default {
   computed: {
-    ...mapGetters({
-      headerTitle: 'articles/headerTitle'
-    })
+    ...mapGetters([
+      'headerTitle'
+    ])
   }
 }
 </script>
